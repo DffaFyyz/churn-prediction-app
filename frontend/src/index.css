@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    @apply bg-ink-950 text-ink-100 font-sans antialiased;
+    background-image:
+      radial-gradient(at 0% 0%, rgba(0, 212, 168, 0.06) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, rgba(99, 116, 144, 0.05) 0px, transparent 50%);
+    background-attachment: fixed;
+  }
+  ::selection {
+    @apply bg-accent/30 text-white;
+  }
+  /* Scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ink-950;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ink-800 rounded;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-700;
+  }
+}
+
+@layer components {
+  .panel {
+    @apply bg-ink-900/60 border border-ink-800 rounded-lg backdrop-blur-sm;
+  }
+  .panel-header {
+    @apply px-4 py-3 border-b border-ink-800 flex items-center justify-between;
+  }
+  .label-mono {
+    @apply text-[10px] uppercase tracking-[0.15em] text-ink-400 font-medium;
+  }
+  .stat-value {
+    @apply font-display text-3xl font-semibold tabular-nums tracking-tight text-ink-50;
+  }
+  .btn {
+    @apply inline-flex items-center gap-1.5 px-3 py-1.5 rounded text-xs font-medium
+           border border-ink-700 bg-ink-800 hover:bg-ink-700 text-ink-100
+           transition-colors disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-primary {
+    @apply border-accent/40 bg-accent/10 text-accent hover:bg-accent/20;
+  }
+  .btn-danger {
+    @apply border-red-500/40 bg-red-500/10 text-red-400 hover:bg-red-500/20;
+  }
+  .input {
+    @apply w-full bg-ink-950 border border-ink-800 rounded px-3 py-1.5 text-sm
+           text-ink-100 placeholder:text-ink-500
+           focus:outline-none focus:border-accent/60 focus:ring-1 focus:ring-accent/20
+           transition-colors;
+  }
+  .select {
+    @apply input appearance-none bg-no-repeat;
+    background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%238493aa'%3E%3Cpath d='M8 11L3 6h10z'/%3E%3C/svg%3E");
+    background-position: right 0.5rem center;
+    background-size: 1em;
+    padding-right: 2rem;
+  }
+  .badge {
+    @apply inline-flex items-center px-1.5 py-0.5 rounded text-[10px] font-semibold uppercase tracking-wider;
+  }
+  .table-row {
+    @apply border-b border-ink-800/60 hover:bg-ink-800/30 transition-colors;
+  }
+  .grid-bg {
+    background-image:
+      linear-gradient(to right, rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+}
